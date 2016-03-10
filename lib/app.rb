@@ -3,6 +3,7 @@ require 'sinatra/base'
 
 class App < Sinatra::Base
   set :root, File.expand_path('../../', __FILE__)
+  set :static_cache_control, [:public, max_age: 3600]
 
   get '/' do
     send_file File.join(settings.public_folder, 'index.html')

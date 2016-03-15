@@ -18,7 +18,7 @@ RSpec.describe App do
     end
 
     it do
-      post '/screenshot', { url: url }
+      get '/screenshot', { url: url }
       expect(content_type).to eql('image/png')
     end
   end

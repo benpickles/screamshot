@@ -8,18 +8,35 @@ RSpec.describe App do
     App
   end
 
-  describe 'POST /screenshot' do
-    let(:content_type) { response.headers['Content-Type'] }
+  describe 'GET /' do
     let(:url) { 'http://example.com' }
 
-    before do
-      tmpfile = Tempfile.new(['screenshot', '.png'])
-      allow(Screenshot).to receive(:fetch).with(url).and_return(tmpfile)
+    def dispatch
+      basic_authorize api_token, ''
+      get '/', { url: url }
     end
 
-    it do
-      get '/screenshot', { url: url }
-      expect(content_type).to eql('image/png')
+    context 'with a valid api_token' do
+      let(:api_token) { ENV.fetch('API_TOKEN') }
+      let(:content_type) { last_response.headers['Content-Type'] }
+      let(:tmpfile) { Tempfile.new(['screenshot', '.png']) }
+
+      it do
+        expect(Screenshot).to receive(:fetch).with(url).and_return(tmpfile)
+        dispatch
+        expect(content_type).to eql('image/png')
+        expect(last_response.status).to eql(200)
+      end
+    end
+
+    context 'with an invalid api_token' do
+      let(:api_token) { 'nope' }
+
+      it do
+        expect(Screenshot).to receive(:fetch).never
+        dispatch
+        expect(last_response.status).to eql(401)
+      end
     end
   end
 end

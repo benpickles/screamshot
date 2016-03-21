@@ -1,2 +1,7 @@
 require './lib/app'
-run App
+require './lib/public'
+
+run Rack::URLMap.new({
+  '/' => Public,
+  '/screenshot' => App,
+})

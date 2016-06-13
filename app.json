@@ -1,0 +1,20 @@
+{
+  "name": "Screamshot",
+  "description": "A synchronous screenshot service built on Sinatra and PhantomJS (via Capybara/Poltergeist).",
+  "keywords": [],
+  "repository": "https://github.com/benpickles/screamshot",
+  "success_url": "/",
+  "scripts": {},
+  "env": {
+    "API_TOKEN": {
+      "description": "A secret token to restrict use.",
+      "generator": "secret"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [],
+  "buildpacks": [
+    { "url": "https://github.com/stomita/heroku-buildpack-phantomjs" },
+    { "url": "https://github.com/heroku/heroku-buildpack-ruby" }
+  ]
+}

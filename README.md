@@ -1,5 +1,7 @@
 # Screamshot
 
+[![Build Status](https://travis-ci.org/benpickles/screamshot.svg?branch=master)](https://travis-ci.org/benpickles/screamshot)
+
 ![Screamshot logo](public/logo.png)
 
 A synchronous screenshot service built on Sinatra and PhantomJS (via Capybara/Poltergeist).

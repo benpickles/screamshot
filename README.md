@@ -13,3 +13,7 @@ A synchronous screenshot service built on Sinatra and PhantomJS (via Capybara/Po
 ```sh
 $ curl "http://API_TOKEN@screamshot.dev/screenshot?url=http://example.com"
 ```
+
+## Licence
+
+Copyright © [Ben Pickles](http://www.benpickles.com), [MIT licence](LICENCE).

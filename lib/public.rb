@@ -3,6 +3,7 @@ require 'sinatra/base'
 class Public < Sinatra::Base
   MAX_AGE = 3600
 
+  set :public_folder, -> { File.join(root, 'docs') }
   set :root, File.expand_path('../../', __FILE__)
   set :static_cache_control, [:public, max_age: MAX_AGE]
 

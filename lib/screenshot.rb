@@ -1,4 +1,4 @@
-require 'capybara/poltergeist'
+require 'ferrum'
 
 class Screenshot
   def self.fetch(url)
@@ -11,16 +11,16 @@ class Screenshot
 
   def fetch
     Tempfile.new(['screenshot', '.png']).tap { |tmpfile|
-      session.visit(url)
-      session.save_screenshot(tmpfile.path, full: true)
-      session.driver.quit
+      browser.goto(url)
+      browser.screenshot(full: true, path: tmpfile.path)
+      browser.quit
     }
   end
 
   private
     attr_reader :url
 
-    def session
-      @session ||= Capybara::Session.new(:poltergeist)
+    def browser
+      @browser ||= Ferrum::Browser.new
     end
 end

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.6.5'
 
-gem 'poltergeist'
+gem 'ferrum'
 gem 'sinatra'
 
 group :development do
@@ -10,5 +10,6 @@ group :development do
 end
 
 group :test do
+  gem 'rack-test'
   gem 'rspec'
 end

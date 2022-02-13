@@ -1,6 +1,0 @@
-sudo: false
-language: ruby
-rvm:
-  - 2.6.5
-env:
-  - API_TOKEN: qwerty

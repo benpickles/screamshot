@@ -1,6 +1,6 @@
 # Screamshot
 
-[![Build Status](https://travis-ci.org/benpickles/screamshot.svg?branch=master)](https://travis-ci.org/benpickles/screamshot)
+[![CI](https://github.com/benpickles/screamshot/actions/workflows/tests.yml/badge.svg)](https://github.com/benpickles/screamshot/actions/workflows/tests.yml)
 
 ![Screamshot logo](docs/logo.png)
 

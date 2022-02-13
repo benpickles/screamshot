@@ -10,6 +10,10 @@
       "description": "A secret token to restrict use.",
       "generator": "secret"
     },
+    "RACK_TIMEOUT_SERVICE_TIMEOUT": {
+      "description": "Terminate a request if it takes longer than this number of seconds.",
+      "value": "20"
+    },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
       "value": "1"

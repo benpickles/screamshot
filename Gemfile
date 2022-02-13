@@ -4,6 +4,7 @@ ruby '2.6.5'
 
 gem 'ferrum'
 gem 'puma'
+gem 'rack-timeout'
 gem 'sinatra'
 
 group :test do

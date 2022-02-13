@@ -16,7 +16,7 @@ $ curl "http://API_TOKEN@screamshot.dev/screenshot?url=http://example.com"
 
 ## Development
 
-Start the server with `bundle exec rackup`.
+Start the server with `bundle exec puma -C config/puma.rb`.
 
 Run the tests with `bundle exec rspec`.
 

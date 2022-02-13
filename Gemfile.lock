@@ -13,12 +13,16 @@ GEM
       websocket-driver (>= 0.6, < 0.8)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nio4r (2.5.8)
     public_suffix (4.0.6)
+    puma (5.6.2)
+      nio4r (~> 2.0)
     rack (2.2.3)
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack-timeout (0.6.0)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)
       rspec-expectations (~> 3.11.0)
@@ -48,7 +52,9 @@ PLATFORMS
 
 DEPENDENCIES
   ferrum
+  puma
   rack-test
+  rack-timeout
   rspec
   sinatra
 

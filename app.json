@@ -9,6 +9,18 @@
     "API_TOKEN": {
       "description": "A secret token to restrict use.",
       "generator": "secret"
+    },
+    "RACK_TIMEOUT_SERVICE_TIMEOUT": {
+      "description": "Terminate a request if it takes longer than this number of seconds.",
+      "value": "20"
+    },
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "1"
+    },
+    "WEB_MAX_THREADS": {
+      "description": "The maximum number of threads per process.",
+      "value": "1"
     }
   },
   "addons": [],

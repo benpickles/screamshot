@@ -14,6 +14,12 @@ A synchronous screenshot service built on Sinatra and headless Chrome (via Ferru
 $ curl "http://API_TOKEN@screamshot.dev/screenshot?url=http://example.com"
 ```
 
+## Development
+
+Start the server with `bundle exec rackup`.
+
+Run the tests with `bundle exec rspec`.
+
 ## Licence
 
 Copyright © [Ben Pickles](http://www.benpickles.com), [MIT licence](LICENCE).

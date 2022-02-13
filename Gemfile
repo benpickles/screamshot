@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.6.5'
+ruby '3.1.0'
 
 gem 'ferrum'
 gem 'puma'

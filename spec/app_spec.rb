@@ -8,16 +8,16 @@ RSpec.describe App do
     App
   end
 
-  describe 'GET /' do
+  describe 'GET /', env: { AUTH_TOKEN: 'qwerty' } do
     let(:url) { 'http://example.com' }
 
     def dispatch
-      basic_authorize api_token, ''
+      basic_authorize auth_token, ''
       get '/', { url: url }
     end
 
-    context 'with a valid api_token' do
-      let(:api_token) { ENV.fetch('API_TOKEN') }
+    context 'with a valid auth_token' do
+      let(:auth_token) { 'qwerty' }
       let(:content_type) { last_response.headers['Content-Type'] }
       let(:tmpfile) { Tempfile.new(['screenshot', '.png']) }
 
@@ -29,8 +29,8 @@ RSpec.describe App do
       end
     end
 
-    context 'with an invalid api_token' do
-      let(:api_token) { 'nope' }
+    context 'with an invalid auth_token' do
+      let(:auth_token) { 'nope' }
 
       it do
         expect(Screenshot).to receive(:fetch).never

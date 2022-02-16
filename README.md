@@ -11,7 +11,7 @@ A synchronous screenshot service built on Sinatra and headless Chrome (via Ferru
 ## Usage
 
 ```sh
-$ curl "http://API_TOKEN@screamshot.dev/screenshot?url=http://example.com"
+$ curl "http://AUTH_TOKEN@screamshot.dev/screenshot?url=http://example.com" > screenshot.png
 ```
 
 ## Development

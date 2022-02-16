@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>Test page</title>
+<style>
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #fff;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  height: 600px;
+}
+
+.row div {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+}
+
+.a { background: #f00 }
+.b { background: #ff0 }
+.c { background: #0f0 }
+.d { background: #00f }
+.e { background: #0ff }
+
+@media (prefers-reduced-motion) {
+  .a {
+    background: #f0f;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="a">a</div>
+    <div class="b">b</div>
+  </div>
+  <div class="row">
+    <div class="c">c</div>
+    <div class="d">d</div>
+  </div>
+  <div class="row">
+    <div class="e">e</div>
+  </div>
+</body>
+</html>

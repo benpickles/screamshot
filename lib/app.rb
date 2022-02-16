@@ -3,7 +3,7 @@ require 'sinatra/base'
 
 class App < Sinatra::Base
   use Rack::Auth::Basic do |username, _|
-    username == ENV.fetch('API_TOKEN')
+    Rack::Utils.secure_compare(username, ENV.fetch('AUTH_TOKEN'))
   end
 
   get '/' do

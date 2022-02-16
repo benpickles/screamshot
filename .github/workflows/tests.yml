@@ -6,8 +6,6 @@ jobs:
   rspec:
     name: RSpec
     runs-on: ubuntu-latest
-    env:
-      API_TOKEN: qwerty
     steps:
     - uses: actions/checkout@v2
     - uses: ruby/setup-ruby@v1

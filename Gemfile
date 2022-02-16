@@ -8,6 +8,7 @@ gem 'rack-timeout'
 gem 'sinatra'
 
 group :test do
+  gem 'climate_control'
   gem 'rack-test'
   gem 'rspec'
 end

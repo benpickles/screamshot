@@ -6,7 +6,7 @@
   "success_url": "/",
   "scripts": {},
   "env": {
-    "API_TOKEN": {
+    "AUTH_TOKEN": {
       "description": "A secret token to restrict use.",
       "generator": "secret"
     },

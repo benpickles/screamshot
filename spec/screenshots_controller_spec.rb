@@ -1,11 +1,11 @@
 require 'rack/test'
-require 'app'
+require 'screenshots_controller'
 
-RSpec.describe App do
+RSpec.describe ScreenshotsController do
   include Rack::Test::Methods
 
   def app
-    App
+    described_class
   end
 
   describe 'GET /', env: { AUTH_TOKEN: 'qwerty' } do

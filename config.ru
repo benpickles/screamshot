@@ -1,10 +1,6 @@
 require 'rack-timeout'
-require './lib/app'
-require './lib/public'
+require_relative 'lib/app'
 
 use Rack::Timeout
 
-run Rack::URLMap.new({
-  '/' => Public,
-  '/screenshot' => App,
-})
+run App

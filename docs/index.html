@@ -1,36 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
 <title>Screamshot</title>
 <style>
+:root {
+  --padding: 1rem;
+}
+
 html,
 body {
   height: 100%;
 }
 
 body {
-  align-items: center;
   background: #c6d5ff;
+  background-attachment: fixed;
   background-image: radial-gradient(circle farthest-corner at 100% 100%, #ffe6c3 0%, #c6d5ff 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.4;
   margin: 0;
 }
 
-a {
-  margin-top: 64px;
+#logo {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 20vh 0 10vh;
+}
+#logo a {
+  margin-top: 2rem;
 }
 
-img {
+#readme {
+  margin: 0 auto;
+  max-width: 700px;
+  padding: 0 var(--padding);
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  padding: 10vh 0 20vh;
+}
+
+code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 3px 5px;
+}
+
+h1 { font-size: 1.8rem; margin: 0; }
+h2 { font-size: 1.4rem; margin: 2rem 0 0; }
+h3 { font-size: 1.2rem; margin: 2rem 0 0; }
+
+p {
+  margin: 0.5rem 0 0;
+}
+
+pre {
+  background: rgba(0, 0, 0, 0.05);
+  margin: 1rem calc(var(--padding) * -1) 0;
+  overflow-x: auto;
+  padding: 0.5rem var(--padding);
+}
+pre code {
+  background: none;
+  padding: 0;
+}
+
+.github {
   display: block;
 }
 </style>
 </head>
 <body>
-<img alt="Screamshot logo" src="logo@2x.png" width="240">
-<a href="https://github.com/benpickles/screamshot"><img alt="Screamshot on GitHub" src="GitHub-Mark-64px.png" width="32"></a>
+
+  <div id="logo">
+    <img alt="Screamshot logo" src="logo@2x.png" width="240">
+    <a href="https://github.com/benpickles/screamshot"><img alt="Screamshot on GitHub" class="github" src="GitHub-Mark-64px.png" width="32"></a>
+  </div>
+
+  <article id="readme"><h1>Screamshot</h1>
+<p>A synchronous HTTP screenshot service built on Sinatra and headless Chrome (via Ferrum).</p>
+<h2>Usage</h2>
+<p>Trigger a screenshot by making a <code>GET</code> request to <code>/screenshot</code> with a <code>url</code> querystring parameter. The endpoint is protected by basic HTTP authentication with your <code>AUTH_TOKEN</code>.</p>
+<pre><code class="language-sh">$ curl "http://AUTH_TOKEN@screamshot.dev/screenshot?url=http://example.com" &gt; screenshot.png
+</code></pre>
+<h2>Options</h2>
+<p>Pass options via querystring parameters. A more complicated Screamshot URL might be the following combination of available options:</p>
+<pre><code>http://AUTH_TOKEN@screamshot.dev/screenshot?url=http://example.com&amp;viewport=800,600&amp;full=true&amp;scale=2&amp;prefers-reduced-motion=reduce
+</code></pre>
+<h3>URL</h3>
+<p>The URL to capture. The only required parameter.</p>
+<pre><code>url=http://example.com
+</code></pre>
+<h3>Window / viewport size</h3>
+<p>Control the size of the viewport with <code>WIDTH,HEIGHT</code>. Defaults to <code>1024,768</code>.</p>
+<pre><code>viewport=800,600
+</code></pre>
+<h3>Full-screen</h3>
+<p>Capture the entire page instead of just the viewport. Defaults to <code>false</code>.</p>
+<pre><code>full=true
+</code></pre>
+<h3>Scale</h3>
+<p>This mimics <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio"><code>devicePixelRatio</code></a> and scales the viewport so <code>scale=2</code> combined with <code>viewport=800,600</code> results in a 1600×1200 image. Defaults to <code>1</code>.</p>
+<pre><code>scale=2
+</code></pre>
+<h3><code>prefers-reduced-motion</code></h3>
+<p>Force the browser into <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"><code>prefers-reduced-motion=reduce</code></a> mode. This can be used as a standards-based hint to the page not to use animations. Defaults to nothing and so is not enabled.</p>
+<pre><code>prefers-reduced-motion=reduce
+</code></pre></article>
+
+  <div id="footer">
+    <a href="https://github.com/benpickles/screamshot"><img alt="Screamshot on GitHub" class="github" src="GitHub-Mark-64px.png" width="32"></a>
+  </div>
+
 </body>
 </html>

@@ -14,6 +14,7 @@ GEM
       xpath (~> 3.2)
     climate_control (1.0.1)
     cliver (0.3.2)
+    commonmarker (0.23.2)
     concurrent-ruby (1.1.9)
     diff-lcs (1.5.0)
     ferrum (0.11)
@@ -74,8 +75,10 @@ PLATFORMS
 DEPENDENCIES
   capybara
   climate_control
+  commonmarker
   ferrum
   mini_magick
+  nokogiri
   puma
   rack-test
   rack-timeout

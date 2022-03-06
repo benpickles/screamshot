@@ -7,6 +7,11 @@ gem 'puma'
 gem 'rack-timeout'
 gem 'sinatra'
 
+group :development do
+  gem 'commonmarker'
+  gem 'nokogiri'
+end
+
 group :test do
   gem 'capybara'
   gem 'climate_control'

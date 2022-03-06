@@ -1,0 +1,34 @@
+#!/usr/bin/env ruby
+
+require 'pathname'
+require 'commonmarker'
+require 'nokogiri'
+
+root = Pathname.new(File.expand_path('..', __dir__))
+readme = root.join('README.md')
+index = root.join('docs/index.html')
+
+readme_html = CommonMarker.render_html(readme.read, :DEFAULT)
+readme_doc = Nokogiri::HTML.fragment(readme_html)
+
+# Remove unwanted images.
+readme_doc.css('p').each do |p|
+  p.remove if p.content.empty?
+end
+
+# Remove unwanted sections.
+remove = false
+readme_doc.elements.each do |elem|
+  remove = true if elem.name == 'h2' && elem.content == 'Development'
+  elem.remove if remove
+end
+
+# Remove unwanted whitespace.
+readme_doc.children.each do |elem|
+  elem.remove if elem.name == 'text' && elem.content.strip.empty?
+end
+
+index_doc = Nokogiri::HTML.parse(index.read)
+index_doc.at_css('#readme').inner_html = readme_doc
+
+index.write(index_doc.to_s)

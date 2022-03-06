@@ -70,6 +70,8 @@ Start the server with `bundle exec puma -C config/puma.rb`.
 
 Run the tests with `bundle exec rspec`.
 
+Write usage docs here, update the homepage with `bin/update_docs`.
+
 ## Licence
 
 Copyright © [Ben Pickles](http://www.benpickles.com), [MIT licence](LICENCE).

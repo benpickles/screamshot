@@ -1,10 +1,13 @@
 {
   "name": "Screamshot",
   "description": "A synchronous screenshot service built on Sinatra and headless Chrome (via Ferrum).",
-  "keywords": [],
+  "keywords": [
+    "screenshot"
+  ],
+  "website": "https://benpickles.github.io/screamshot",
   "repository": "https://github.com/benpickles/screamshot",
+  "logo": "https://benpickles.github.io/screamshot/apple-touch-icon.png",
   "success_url": "/",
-  "scripts": {},
   "env": {
     "AUTH_TOKEN": {
       "description": "A secret token to restrict use.",
@@ -23,7 +26,6 @@
       "value": "1"
     }
   },
-  "addons": [],
   "buildpacks": [
     { "url": "https://github.com/heroku/heroku-buildpack-google-chrome" },
     { "url": "https://github.com/heroku/heroku-buildpack-ruby" }

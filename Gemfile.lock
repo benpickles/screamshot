@@ -45,7 +45,7 @@ GEM
       rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rack-timeout (0.6.0)
+    rack-timeout (0.6.2)
     regexp_parser (2.2.1)
     rspec (3.11.0)
       rspec-core (~> 3.11.0)

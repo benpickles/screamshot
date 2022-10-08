@@ -52,7 +52,7 @@ RSpec.describe Screenshot do
         expect(Ferrum::Browser).to receive(:new).with(
           hash_including(
             browser_options: {
-              'force-prefers-reduced-motion': true,
+              'force-prefers-reduced-motion' => true,
             },
           )
         ).and_return(browser)

@@ -39,10 +39,15 @@ class Screenshot
   private
     def browser
       @browser ||= Ferrum::Browser.new(
-        browser_options: {
-          'force-prefers-reduced-motion': prefers_reduced_motion,
-        }.compact,
+        browser_options:,
         window_size: viewport,
       )
+    end
+
+    def browser_options
+      hash = {}
+      hash['force-prefers-reduced-motion'] = prefers_reduced_motion if prefers_reduced_motion
+      hash['no-sandbox'] = nil if ENV['CHROME_NO_SANDBOX']
+      hash
     end
 end

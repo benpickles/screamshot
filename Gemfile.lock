@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.0)
-      public_suffix (>= 2.0.2, < 5.0)
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
     capybara (3.37.1)
       addressable
       matrix
@@ -13,14 +13,13 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     climate_control (1.2.0)
-    cliver (0.3.2)
     commonmarker (0.23.5)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     diff-lcs (1.5.0)
-    ferrum (0.11)
+    ferrum (0.12)
       addressable (~> 2.5)
-      cliver (~> 0.3)
       concurrent-ruby (~> 1.1)
+      webrick (~> 1.7)
       websocket-driver (>= 0.6, < 0.8)
     matrix (0.4.2)
     mini_magick (4.11.0)
@@ -36,7 +35,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
-    public_suffix (4.0.7)
+    public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
     racc (1.6.0)
@@ -67,6 +66,7 @@ GEM
       rack-protection (= 2.2.2)
       tilt (~> 2.0)
     tilt (2.0.11)
+    webrick (1.7.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

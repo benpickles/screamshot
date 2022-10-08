@@ -8,6 +8,18 @@ A synchronous HTTP screenshot service built on Sinatra and headless Chrome (via 
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/benpickles/screamshot)
 
+- [Usage](#usage)
+- [Options](#options)
+  - [URL](#url)
+  - [Window / viewport size](#window--viewport-size)
+  - [Full-screen](#full-screen)
+  - [Scale (`devicePixelRatio`)](#scale-devicepixelratio)
+  - [`prefers-reduced-motion`](#prefers-reduced-motion)
+- [Deployment](#deployment)
+  - [Deploying to Fly.io](#deploying-to-flyio)
+  - [Deploying to Heroku](#deploying-to-heroku)
+- [Development](#development)
+
 ## Usage
 
 Trigger a screenshot by making a `GET` request to `/screenshot` with a `url` querystring parameter. The endpoint is protected by basic HTTP authentication with your `AUTH_TOKEN`.
@@ -48,7 +60,7 @@ Capture the entire page instead of just the viewport. Defaults to `false`.
 full=true
 ```
 
-### Scale
+### Scale (`devicePixelRatio`)
 
 This mimics [`devicePixelRatio`](https://developer.mozilla.org/en-US/docs/Web/API/Window/devicePixelRatio) and scales the viewport so `scale=2` combined with `viewport=800,600` results in a 1600×1200 image. Defaults to `1`.
 
@@ -63,6 +75,20 @@ Force the browser into [`prefers-reduced-motion=reduce`](https://developer.mozil
 ```
 prefers-reduced-motion=reduce
 ```
+
+## Deployment
+
+### Deploying to [Fly.io](https://fly.io)
+
+Clone this repository and use [`flyctl`](https://fly.io/docs/hands-on/install-flyctl/) to create and configure the app (say yes when asked whether you'd like to copy its configuration):
+
+```sh
+$ fly launch --name my-app-name
+```
+
+### Deploying to Heroku
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/benpickles/screamshot)
 
 ## Development
 

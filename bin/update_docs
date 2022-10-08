@@ -3,6 +3,7 @@
 require 'pathname'
 require 'commonmarker'
 require 'nokogiri'
+require 'set'
 
 root = Pathname.new(File.expand_path('..', __dir__))
 readme = root.join('README.md')
@@ -11,16 +12,28 @@ index = root.join('docs/index.html')
 readme_html = CommonMarker.render_html(readme.read, :DEFAULT)
 readme_doc = Nokogiri::HTML.fragment(readme_html)
 
-# Remove unwanted images.
+# Remove unwanted images (paragraphs with no text).
 readme_doc.css('p').each do |p|
   p.remove if p.content.empty?
 end
 
+# Remove TOC.
+readme_doc.at_css('ul').remove
+
+keep_sections = Set.new(['Usage', 'Options'])
+
 # Remove unwanted sections.
-remove = false
-readme_doc.elements.each do |elem|
-  remove = true if elem.name == 'h2' && elem.content == 'Development'
-  elem.remove if remove
+readme_doc.css('h2').each do |h2|
+  next if keep_sections.include?(h2.content)
+
+  elem = h2
+
+  loop do
+    next_element = elem.next_element
+    elem.remove
+    elem = next_element
+    break if elem.nil? || elem.name == 'h2'
+  end
 end
 
 # Remove unwanted whitespace.

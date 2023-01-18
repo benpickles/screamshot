@@ -22,7 +22,7 @@ GEM
       webrick (~> 1.7)
       websocket-driver (>= 0.6, < 0.8)
     matrix (0.4.2)
-    mini_magick (4.11.0)
+    mini_magick (4.12.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.1)
     mustermann (3.0.0)

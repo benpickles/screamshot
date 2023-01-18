@@ -17,17 +17,17 @@ RSpec.describe Screenshot do
       let(:args) { { url: url } }
 
       it 'passes the url and the correct defaults' do
-        expect(Ferrum::Browser).to receive(:new).with(
+        expect(Ferrum::Browser).to receive(:new).with({
           browser_options: {},
           window_size: [1024, 768],
-        ).and_return(browser)
+        }).and_return(browser)
 
         expect(browser).to receive(:goto).with(url)
-        expect(browser).to receive(:screenshot).with(
+        expect(browser).to receive(:screenshot).with({
           full: false,
           path: 'path',
           scale: 1,
-        )
+        })
 
         expect(subject).to be(tempfile)
       end

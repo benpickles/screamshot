@@ -17,12 +17,12 @@
 # We recommend using the highest patch level for better security and
 # performance.
 
-ARG RUBY_VERSION=3.2.1
+ARG RUBY_VERSION=3.2.2
 ARG VARIANT=jemalloc-slim
 FROM quay.io/evl.ms/fullstaq-ruby:${RUBY_VERSION}-${VARIANT} as base
 
 ARG NODE_VERSION=16.17.0
-ARG BUNDLER_VERSION=2.4.4
+ARG BUNDLER_VERSION=2.4.10
 
 ARG BUNDLE_WITHOUT=development:test
 ARG BUNDLE_PATH=vendor/bundle

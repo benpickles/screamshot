@@ -24,12 +24,10 @@ GEM
     matrix (0.4.2)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     nio4r (2.7.0)
-    nokogiri (1.16.2)
-      mini_portile2 (~> 2.8.2)
+    nokogiri (1.16.2-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.2-x86_64-darwin)
       racc (~> 1.4)
@@ -74,7 +72,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  arm64-darwin-22
   x86_64-darwin-21
   x86_64-linux
 
